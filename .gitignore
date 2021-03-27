@@ -14,6 +14,7 @@ dist/
 downloads/
 eggs/
 lib/
+!stubs/construct/construct/lib
 lib64/
 parts/
 sdist/
