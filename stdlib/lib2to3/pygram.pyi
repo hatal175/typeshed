@@ -3,7 +3,7 @@ from lib2to3.pgen2.grammar import Grammar
 class Symbols:
     def __init__(self, grammar: Grammar) -> None: ...
 
-class python_symbols(Symbols):
+class _python_symbols(Symbols):
     and_expr: int
     and_test: int
     annassign: int
@@ -99,7 +99,9 @@ class python_symbols(Symbols):
     yield_expr: int
     yield_stmt: int
 
-class pattern_symbols(Symbols):
+python_symbols: _python_symbols
+
+class _pattern_symbols(Symbols):
     Alternative: int
     Alternatives: int
     Details: int
@@ -107,6 +109,8 @@ class pattern_symbols(Symbols):
     NegatedUnit: int
     Repeater: int
     Unit: int
+
+pattern_symbols: _pattern_symbols
 
 python_grammar: Grammar
 python_grammar_no_print_statement: Grammar

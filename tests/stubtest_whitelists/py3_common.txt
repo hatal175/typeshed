@@ -142,15 +142,24 @@ ipaddress._BaseAddress.is_unspecified
 ipaddress._BaseAddress.max_prefixlen
 ipaddress._BaseAddress.packed
 ipaddress._BaseNetwork.max_prefixlen
-lib2to3.pygram.pattern_symbols
-lib2to3.pygram.python_symbols
-lib2to3.pytree.Base.__new__
-lib2to3.pytree.Base.children
-lib2to3.pytree.Base.type
-lib2to3.pytree.BasePattern.__new__
-lib2to3.pytree.BasePattern.type
-lib2to3.pytree.NegatedPattern.match
-lib2to3.pytree.NegatedPattern.match_seq
+# All lib2to3 symbol exceptions are because the Symbols class adds attributes in __ubut__.
+# The stubs define the classes with more attributes manually when it can with deriving classes but
+# they are not actually in the code.
+lib2to3.btm_utils.pattern_symbols
+lib2to3.btm_utils.pysyms
+lib2to3.btm_utils.python_symbols
+lib2to3.btm_utils.syms
+lib2to3.fixer_base.BaseFix.options
+lib2to3.fixer_base.BaseFix.syms
+lib2to3.*.pygram.pattern_symbols
+lib2to3.*.pygram.python_symbols
+lib2to3.*.pytree.Base.__new__
+lib2to3.*.pytree.Base.children
+lib2to3.*.pytree.Base.type
+lib2to3.*.pytree.BasePattern.__new__
+lib2to3.*.pytree.BasePattern.type
+lib2to3.*.pytree.NegatedPattern.match
+lib2to3.*.pytree.NegatedPattern.match_seq
 mmap.mmap.__iter__  # has __getitem__ but mypy doesn't derive __iter__ from it: https://github.com/python/mypy/issues/2220
 multiprocessing.JoinableQueue
 multiprocessing.Queue

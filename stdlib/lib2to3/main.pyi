@@ -1,0 +1,26 @@
+from typing import Any, Container, Iterable, Iterator, Mapping, Optional, Sequence
+
+from . import refactor as refactor
+
+def diff_texts(a: str, b: str, filename: str) -> Iterator[str]: ...
+
+class StdoutRefactoringTool(refactor.MultiprocessRefactoringTool):
+    nobackups: bool = ...
+    show_diffs: bool = ...
+    def __init__(
+        self,
+        fixers: Iterable[str],
+        options: Optional[Mapping[str, Any]],
+        explicit: Container[str],
+        nobackups: bool,
+        show_diffs: bool,
+        input_base_dir: str = ...,
+        output_dir: str = ...,
+        append_suffix: str = ...,
+    ) -> None: ...
+    def log_error(self, msg: str, *args: Any, **kwargs: Any) -> None: ...
+    def write_file(self, new_text: str, filename: str, old_text: str, encoding: Optional[str]) -> None: ...  # type: ignore
+    def print_output(self, old: str, new: str, filename: str, equal: bool) -> None: ...
+
+def warn(msg: str) -> None: ...
+def main(fixer_pkg: str, args: Optional[Sequence[str]] = ...) -> int: ...
